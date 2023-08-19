@@ -1,0 +1,13 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}Modifier AdminFac{% endblock %}
+
+{% block body %}
+    <h1>Modifier AdminFac</h1>
+
+    {{ include('admin_fac/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_admin_fac_index') }}">Retour</a>
+
+    {{ include('admin_fac/_delete_form.html.twig') }}
+{% endblock %}

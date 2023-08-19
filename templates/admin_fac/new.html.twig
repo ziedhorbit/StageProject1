@@ -1,0 +1,11 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}Nouveau AdminFac{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un nouveau AdminFac</h1>
+
+    {{ include('admin_fac/_form.html.twig') }}
+
+    <a href="{{ path('app_admin_fac_index') }}">Retour</a>
+{% endblock %}

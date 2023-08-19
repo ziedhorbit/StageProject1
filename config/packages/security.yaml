@@ -1,0 +1,32 @@
+security:
+    enable_authenticator_manager: true
+    password_hashers:
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+    providers:
+        app_AdminFac_provider:
+            entity:
+                class: App\Entity\AdminFac
+                property: email
+        app_AdminEs_provider:
+            entity:
+                class: App\Entity\AdminEsprit
+                property: email
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            lazy: true
+            custom_authenticator:
+                - App\Security\AdminFacAuthenticator
+                - App\Security\AdminEsAuthenticator
+            entry_point: App\Security\AdminFacAuthenticator
+            logout:
+                path: app_logout
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 604800
+                path: /
+                always_remember_me: true
+    access_control:
+        # Add your access control rules here

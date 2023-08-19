@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Opportinute index{% endblock %}
+
+{% block body %}
+    <h1>Opportinute index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NomFaculte</th>
+                <th>DateDebut</th>
+                <th>Datefin</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for opportinute in opportinutes %}
+            <tr>
+                <td>{{ opportinute.id }}</td>
+                <td>{{ opportinute.NomFaculte }}</td>
+                <td>{{ opportinute.DateDebut ? opportinute.DateDebut|date('Y-m-d') : '' }}</td>
+                <td>{{ opportinute.Datefin ? opportinute.Datefin|date('Y-m-d') : '' }}</td>
+                <td>{{ opportinute.description }}</td>
+                <td>
+                    <a href="{{ path('app_opportinute_show', {'id': opportinute.id}) }}">show</a>
+                    <a href="{{ path('app_opportinute_edit', {'id': opportinute.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_opportinute_new') }}">Create new</a>
+{% endblock %}

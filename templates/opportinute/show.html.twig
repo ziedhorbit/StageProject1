@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Opportinute{% endblock %}
+
+{% block body %}
+    <h1>Opportinute</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ opportinute.id }}</td>
+            </tr>
+            <tr>
+                <th>NomFaculte</th>
+                <td>{{ opportinute.NomFaculte }}</td>
+            </tr>
+            <tr>
+                <th>DateDebut</th>
+                <td>{{ opportinute.DateDebut ? opportinute.DateDebut|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datefin</th>
+                <td>{{ opportinute.Datefin ? opportinute.Datefin|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ opportinute.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_opportinute_index') }}">back to list</a>
+
+    <a href="{{ path('app_opportinute_edit', {'id': opportinute.id}) }}">edit</a>
+
+    {{ include('opportinute/_delete_form.html.twig') }}
+{% endblock %}

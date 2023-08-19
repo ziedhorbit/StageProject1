@@ -1,0 +1,46 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}Liste AdminEsprit{% endblock %}
+
+{% block body %}
+    <h1>Liste AdminEsprit</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+        
+                <th>IdEsprit</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Cin</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for admin_esprit in admin_esprits %}
+            <tr>
+                <td>{{ admin_esprit.id }}</td>
+                <td>{{ admin_esprit.email }}</td>
+               
+                <td>{{ admin_esprit.idEsprit }}</td>
+                <td>{{ admin_esprit.nom }}</td>
+                <td>{{ admin_esprit.prenom }}</td>
+                <td>{{ admin_esprit.cin }}</td>
+                <td>
+                    <a href="{{ path('app_admin_esprit_show', {'id': admin_esprit.id}) }}">Afficher</a>
+                    <a href="{{ path('app_admin_esprit_edit', {'id': admin_esprit.id}) }}">Modifier</a>
+                    <a href="{{ path('app_admin_esprit_delete', {'id': admin_esprit.id}) }}">Supprimer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_esprit_new') }}">Ajouter un nouveau AdminEsprit</a>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}Afficher AdminEsprit{% endblock %}
+
+{% block body %}
+    <h1>Afficher AdminEsprit</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ admin_esprit.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ admin_esprit.email }}</td>
+            </tr>
+        
+            <tr>
+                <th>Password</th>
+                <td>{{ admin_esprit.password }}</td>
+            </tr>
+            <tr>
+                <th>IdEsprit</th>
+                <td>{{ admin_esprit.idEsprit }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ admin_esprit.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ admin_esprit.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Cin</th>
+                <td>{{ admin_esprit.cin }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_esprit_index') }}">Retour</a>
+
+    <a href="{{ path('app_admin_esprit_edit', {'id': admin_esprit.id}) }}">Modifier</a>
+    <a href="{{ path('app_admin_esprit_delete', {'id': admin_esprit.id}) }}">Supprimer</a>
+
+    {{ include('admin_esprit/_delete_form.html.twig') }}
+{% endblock %}

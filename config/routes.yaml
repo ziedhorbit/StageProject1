@@ -1,0 +1,13 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+app_front:
+    resource:  App\Controller\FrontController
+    type: annotation
+
+
+app_admin:
+    resource:  App\Controller\AdminController
+    type: annotation
+

@@ -1,0 +1,11 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}Nouveau AdminEsprit{% endblock %}
+
+{% block body %}
+    <h1>Ajouter AdminEsprit</h1>
+
+    {{ include('admin_esprit/_form.html.twig') }}
+
+    <a href="{{ path('app_admin_esprit_index') }}">Retour</a>
+{% endblock %}

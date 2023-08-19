@@ -1,0 +1,46 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}AdminFac index{% endblock %}
+
+{% block body %}
+    <h1>AdminFac index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+            
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>NomFaculté</th>
+                <th>Adresse</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for admin_fac in admin_facs %}
+            <tr>
+                <td>{{ admin_fac.id }}</td>
+                <td>{{ admin_fac.email }}</td>
+               
+                <td>{{ admin_fac.nom }}</td>
+                <td>{{ admin_fac.prenom }}</td>
+                <td>{{ admin_fac.nomFaculte }}</td>
+                <td>{{ admin_fac.adresse }}</td>
+                <td>
+                    <a href="{{ path('app_admin_fac_show', {'id': admin_fac.id}) }}">Afficher</a>
+                    <a href="{{ path('app_admin_fac_edit', {'id': admin_fac.id}) }}">Modifier</a>
+                    <a href="{{ path('app_admin_fac_delete', {'id': admin_fac.id}) }}">Supprimer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_fac_new') }}">Ajouter un nouveau AdminFac</a>
+{% endblock %}

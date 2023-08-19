@@ -1,0 +1,44 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}AdminFac{% endblock %}
+
+{% block body %}
+    <h1>AdminFac</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ admin_fac.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ admin_fac.email }}</td>
+            </tr>
+         
+            <tr>
+                <th>Nom</th>
+                <td>{{ admin_fac.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ admin_fac.prenom }}</td>
+            </tr>
+            <tr>
+                <th>NomFaculté</th>
+                <td>{{ admin_fac.nomFaculte }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ admin_fac.adresse }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_fac_index') }}">Retour</a>
+
+    <a href="{{ path('app_admin_fac_edit', {'id': admin_fac.id}) }}">Modifier</a>
+    <a href="{{ path('app_admin_fac_delete', {'id': admin_fac.id}) }}">Supprimer</a>
+
+    {{ include('admin_fac/_delete_form.html.twig') }}
+{% endblock %}
